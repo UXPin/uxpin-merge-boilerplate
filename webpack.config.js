@@ -16,6 +16,11 @@ module.exports = {
     module: {
       rules: [
         {
+          test: /\.svg$/,
+          exclude: /node_modules/,
+          loader: 'svg-react-loader'
+        },
+        {
           test: /\.tsx?$/, 
           loader: "awesome-typescript-loader"
         },

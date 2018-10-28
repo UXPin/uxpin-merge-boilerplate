@@ -116,7 +116,7 @@ const ButtonCommon = withProps({
   createProps: props => this.props.isDisabled
 })(styled("button")`
   width: ${props => (props.stretched ? "100%" : "auto")};
-  padding: 0 ${size.s} 0 ${size.s};       
+  padding: 0 ${size.s}px 0 ${size.s}px;       
   border-radius: ${borders.borderRadius};
   border: ${props => `1px solid ${backgroundSelector(props.type)}`};
   font-family: ${typography.fontFamily};
