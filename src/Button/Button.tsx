@@ -8,9 +8,11 @@ export interface Props {
   mode?:'filled' | 'ghost';
   title?:string;
   background?:string;
-  size?:'xs' | 's' | 'm' | 'l';
+  size?:'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
   stretched:boolean;
   children:string;
+  icon:React.ReactNode;
+  iconDirection:'left' | 'right';
 }
 
 export default function Button({
@@ -23,6 +25,8 @@ export default function Button({
   size = 'm',
   stretched = true,
   children,
+  icon,
+  iconDirection = 'left',
 }:Props) {
   return (
     <ButtonStyles
@@ -34,7 +38,9 @@ export default function Button({
       stretched={stretched}
       type={type}
       mode={mode}
-    >
+      icon={icon}
+      iconDirection={iconDirection}
+    > {icon}
       {children}
     </ButtonStyles>
   );

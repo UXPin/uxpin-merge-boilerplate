@@ -2,10 +2,10 @@
 
 ```javascript
 <Button
-    size="m"
+    size="l"
     stretched={false}
     type="error"
->
-    Merge!
-</Button>
+    icon={<Icon size="s" icon="PencilSvg"/>}
+    iconDirection="left"
+    mode="ghost" />
 ```
