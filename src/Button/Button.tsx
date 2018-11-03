@@ -5,7 +5,7 @@ export interface Props {
   onClick?:() => void;
   isDisabled?:boolean;
   type?:'primary' | 'secondary' | 'success' | 'error' | 'warning';
-  mode?:'filled' | 'ghost';
+  mode?:'filled' | 'ghost' | 'minimal';
   title?:string;
   background?:string;
   size?:'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
@@ -27,7 +27,7 @@ export default function Button({
   children,
   icon,
   iconDirection = 'left',
-}:Props) {
+}:Props):any {
   return (
     <ButtonStyles
       onClick={onClick}

@@ -2,10 +2,10 @@
 
 ```javascript
 <Button
-    size="l"
+    size="s"
     stretched={false}
     type="error"
-    icon={<Icon size="s" icon="PencilSvg"/>}
+    icon={<Icon size="s" icon="TickerSvg"/>}
     iconDirection="left"
-    mode="ghost" />
+    mode="filled" />
 ```

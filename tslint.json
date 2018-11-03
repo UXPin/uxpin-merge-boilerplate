@@ -3,7 +3,8 @@
     "rules": {
         "no-default-export": false,
         "match-default-export-name": false,
-        "function-name": false
+        "function-name": false,
+        "strictNullChecks": false,
       }
 
 }

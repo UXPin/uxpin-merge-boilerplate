@@ -218,9 +218,7 @@ const ButtonCommon = withProps({
   border: ${props => `1px solid ${backgroundSelector(props.type)}`};
   font-family: ${typography.fontFamily};
   font-weight: ${typography.weight.bold};
-  line-height: ${props =>
-    `${sizeSelector(props.size) * typography.lineHeightMultiplier.button}px`};
-  };
+  line-height: ${props => `${sizeSelector(props.size) * typography.lineHeightMultiplier.button}px}`};
   font-size: ${props => `${sizeSelector(props.size)}px`};
   &:hover {
     background-color: ${props => backgroundSelector(props.type, "hover")};
@@ -267,6 +265,31 @@ const modes = (mode, type) => {
         }
       }
   ` 
+  }
+  else if(mode === "minimal") {
+    return css`
+      background-color: none;
+      border: none;
+      color: ${ type !== "secondary" ? backgroundSelector(type) : colors.gray.base};
+      svg {
+        fill: ${ type !== "secondary" ? backgroundSelector(type) : colors.gray.base};
+      }
+      &:hover {
+        background: none;
+        border: none;
+        box-shadow: none;
+        svg {
+          fill: ${backgroundSelector(type, "hover")}
+        }
+      }
+      &:active, &:focus {
+        background: none;
+        border: none;
+        svg {
+          fill: ${backgroundSelector(type, "active")}
+        }
+      }
+    `;
   }
   else {
     return css`
