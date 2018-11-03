@@ -7,7 +7,8 @@ module.exports = {
             "src/Button/Button.tsx",
             "src/Icon/Icon.tsx",
             "src/Select/Select/Select.tsx",
-            "src/Select/SelectItem/SelectItem.tsx"
+            "src/Select/SelectItem/SelectItem.tsx",
+            "src/Table/Table.tsx"
           ]
         }
       ]
