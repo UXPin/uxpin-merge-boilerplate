@@ -48,7 +48,7 @@ export default class Select extends React.Component<Props, any> {
     this.setState({ content:this.props.placeholder, open: false, selected: '' });
   }
 
-  public render():any {
+  public render():React.ReactNode {
     const menuContent:React.ReactNode[] = this.props.children.length > 0 ? this.props.children : '';
     return (
       <SelectContainerStyles {...this.props}>
@@ -63,7 +63,7 @@ export default class Select extends React.Component<Props, any> {
                 size="s"
                 stretched={false}
                 icon={<Icon icon="ActionCloseSvg" size="xs" color="#444"/>}
-                onClick={(e:any) => this.restartSelect(e)} />
+                onClick={(e) => this.restartSelect(e)} />
             : ''}
             <Icon icon="ChevronSvg" color="#444"/>
         </SelectStyles>
