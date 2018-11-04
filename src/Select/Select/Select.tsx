@@ -4,59 +4,40 @@ import Icon from '../../Icon/Icon';
 import { ItemStyles, MenuStyles, SelectContainerStyles, SelectContent, SelectStyles } from './Select.styles';
 
 interface Props {
-  children?:any;
+  children:JSX.Element[] | JSX.Element | React.ReactNode | React.ReactNode[];
   width?:'stretched' | 'auto' | number;
   placeholder?:string;
 }
 
-interface DefaultProps {
-  width:'stretched';
-  placeholder?:'Select...';
+interface State {
+  content?:string | undefined;
+  open?:boolean;
+  selected?:number | string;
 }
 
-type defaultProps = Readonly<DefaultProps>;
+const initialState:State = {
+  open: false,
+};
 
-export default class Select extends React.Component<Props, any> {
-  private static defaultProps:defaultProps = {
+export default class Select extends React.Component<Props, State> {
+  public static defaultProps:Partial<Props> = {
+    placeholder: 'Select...',
     width: 'stretched',
-    placeholder:'Select...'
   };
+
   constructor(props:Props) {
     super(props);
-    this.state = {
-      content:this.props.placeholder,
-      open:false,
-    };
+    this.state = { ...initialState, content: this.props.placeholder };
   }
 
-  public selectItem = (content:string, id:number) => {
-    this.setState({
-      content,
-      open: false,
-      selected:id,
-    });
-  }
-
-  public toggleList = ():void => {
-    this.setState(this.setState((prevState:any) => ({
-      open: !prevState.open,
-    })));
-  }
-
-  public restartSelect = (e:any):void => {
-    e.stopPropagation();
-    this.setState({ content:this.props.placeholder, open: false, selected: '' });
-  }
-
-  public render():React.ReactNode {
-    const menuContent:React.ReactNode[] = this.props.children.length > 0 ? this.props.children : '';
+  public render():JSX.Element {
     return (
       <SelectContainerStyles {...this.props}>
         <SelectStyles onClick={this.toggleList} {...this.props}>
             <SelectContent>
               {this.state.content}
             </SelectContent>
-            {this.state.content !== 'Select...' ?
+            {this.state.content !== this.props.placeholder ?
               <Button
                 mode="minimal"
                 type="error"
@@ -69,11 +50,12 @@ export default class Select extends React.Component<Props, any> {
         </SelectStyles>
         {this.state.open ?
         <MenuStyles {...this.props}>
-            {menuContent.map((item:any, i:number) => {
+            {React.Children.map(this.props.children, (item:JSX.Element, i:number) => {
+              const option:string = item.props.children;
               return <ItemStyles
                       id={`${i}listItem`}
                       active={this.state.selected}
-                      onClick={() => this.selectItem(item.props.children, i)}
+                      onClick={() => this.selectItem(option, i)}
                       {...this.props}
                       >
                       {item}
@@ -82,5 +64,24 @@ export default class Select extends React.Component<Props, any> {
         </MenuStyles> : ''}
       </SelectContainerStyles>
     );
+  }
+
+  private selectItem = (content:string, id:number) => {
+    this.setState({
+      content,
+      open: false,
+      selected:id,
+    });
+  }
+
+  private toggleList = () => {
+    this.setState((prevState) => ({
+      open: !prevState.open,
+    }));
+  }
+
+  private restartSelect = (e:any) => {
+    e.stopPropagation();
+    this.setState({ content: this.props.placeholder, open: false, selected: '' });
   }
 }

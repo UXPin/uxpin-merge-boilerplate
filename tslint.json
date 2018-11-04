@@ -5,6 +5,7 @@
         "match-default-export-name": false,
         "function-name": false,
         "strictNullChecks": false,
+        "variable-name": false
       }
 
 }
