@@ -4,7 +4,7 @@
 <Table
     width="stretched"
     data={{
-        "header": ["band", "singer", "rhythm guitar", "lead guitar", "bass", "drums"],
+        "header": ["band", "singer", "rhythm guitar", "lead guitar", "bass", "drums", "keyboard"],
         "body": [
             {
                 "band": "metallica",
@@ -34,8 +34,25 @@
                 "singer": "freddy mercury",
                 "lead guitar": "brian may",
                 "bass": "john deacon",
-                "drums": "roger taylor"
-            }
+                "drums": "roger taylor",
+                "keyboard": "freddy mercury"
+            },
+            {
+                "band": "led zeppelin",
+                "singer": "robert plant",
+                "lead guitar": "jimmy page",
+                "bass": "john paul johns",
+                "drums": "bonzo bonham",
+                "keyboard": "john paul johns"
+            },
+            {
+                "band": "deep purple",
+                "singer": "ian gillan",
+                "lead guitar": "ritchie blackmore",
+                "bass": "roger glover",
+                "drums": "ian paice",
+                "keyboard": "jon lord"
+            },
         ]
     }}
 />
