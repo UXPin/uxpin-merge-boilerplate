@@ -65,9 +65,9 @@ export default class Table extends React.Component<Props, State> {
       <TableStyles {...this.props}>
         <thead>
           <HeaderRowStyles>
-            {this.state.header.map((item:string) => {
+            {this.state.header.map((item:string, i:number) => {
               return (
-                <HeaderCellStyles>
+                <HeaderCellStyles key={i}>
                 <HeaderCellWrapper>
                   {item}
                   <SortingStyles>
@@ -87,23 +87,23 @@ export default class Table extends React.Component<Props, State> {
                      icon={<Icon icon="ChevronSvg" size="xs" />}
                      onClick={(e) => this.sortData(e, 'az', item)}
                     />
-        </SortingStyles>
-                  </HeaderCellWrapper>
-                </HeaderCellStyles>
+                  </SortingStyles>
+                </HeaderCellWrapper>
+            </HeaderCellStyles>
               );
             })}
           </HeaderRowStyles>
         </thead>
         <tbody>
           {this.state.body.map(
-            (item:any):any => {
+            (item:any, i:number):any => {
               return (
-                <BodyRowStyles>
-                  {this.props.data.header.map((elem:string) => {
+                <BodyRowStyles key={i}>
+                  {this.props.data.header.map((elem:string, e:number) => {
                     return item[elem] ? (
-                      <BodyCellStyles>{item[elem]}</BodyCellStyles>
+                      <BodyCellStyles key={e}>{item[elem]}</BodyCellStyles>
                     ) : (
-                      <BodyCellStylesNone>none</BodyCellStylesNone>
+                      <BodyCellStylesNone key={e}>none</BodyCellStylesNone>
                     );
                   })}
                 </BodyRowStyles>
