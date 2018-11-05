@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "uxpin-merge server --webpack-config ./webpack.config.js --wrapper ./src/UXPinWrapper/UXPinWrapper.js",
-    "icons": "node ./tools/icons.js"
+    "start": "uxpin-merge server --webpack-config ./webpack.config.js --wrapper ./src/UXPinWrapper/UXPinWrapper.js"
   },
   "repository": {
     "type": "git",
