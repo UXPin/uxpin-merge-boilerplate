@@ -48,7 +48,7 @@ function writeImports(files) {
         const camelName = _.camelCase(clearName).toString();
         if(camelName){
             const capName = camelName[0].toUpperCase() + camelName.slice(1) + 'Svg';
-            const importStringChunk = `const ${capName} = require(../icons/${item}') as string; \r\n`;
+            const importStringChunk = `const ${capName}:string = require('../icons/${item}') as string; \r\n`;
             namesArr.push(capName);
             importString += importStringChunk;        
         }

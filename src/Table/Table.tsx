@@ -17,14 +17,13 @@ interface Props {
   data:{ header:string[]; body:object[] };
 }
 
-interface DefaultProps {
-  width:'stretched';
+interface State {
+  body:object[];
+  header:string[];
 }
 
-type defaultProps = Readonly<DefaultProps>;
-
-export default class Table extends React.Component<Props, any> {
-  private static defaultProps:defaultProps = {
+export default class Table extends React.Component<Props, State> {
+  private static defaultProps:Partial<Props> = {
     width: 'stretched',
   };
   constructor(props:Props) {
@@ -66,7 +65,7 @@ export default class Table extends React.Component<Props, any> {
       <TableStyles {...this.props}>
         <thead>
           <HeaderRowStyles>
-            {this.state.header.map((item:any) => {
+            {this.state.header.map((item:string) => {
               return (
                 <HeaderCellStyles>
                 <HeaderCellWrapper>

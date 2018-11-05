@@ -70,7 +70,7 @@ const ItemStyles = styled("li")`
         background-color: ${colors.silver.light1};
     }
     span {
-        max-width: 90%%;
+        max-width: 90%;
         overflow: hidden;
         white-space: nowrap;
         text-align: center;

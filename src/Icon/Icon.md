@@ -1,5 +1,5 @@
 # Icon
 
 ```javascript
-<Icon size="l" icon="BuildingSvg"/>
+<Icon size="l" icon="PinMapSolidSvg"/>
 ```
