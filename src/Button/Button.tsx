@@ -5,7 +5,7 @@ export interface Props {
   onClick?:(e:React.MouseEvent<HTMLInputElement>) => void;
   isDisabled?:boolean;
   type?:'primary' | 'secondary' | 'success' | 'error' | 'warning';
-  mode?:'filled' | 'ghost' | 'minimal';
+  mode?:'filled' | 'ghost' | 'minimal' | 'flat';
   title?:string;
   background?:string;
   size?:'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';

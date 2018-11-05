@@ -268,7 +268,7 @@ const modes = (mode, type) => {
   }
   else if(mode === "minimal") {
     return css`
-      background-color: none;
+      background-color: transparent;
       border: none;
       color: ${ type !== "secondary" ? backgroundSelector(type) : colors.gray.base};
       svg {
@@ -289,6 +289,35 @@ const modes = (mode, type) => {
           fill: ${backgroundSelector(type, "active")}
         }
       }
+    `;
+  }
+  else if(mode === "flat") {
+    return css`
+      background-color: transparent;
+      border: none;
+      height: ${size.m};
+      padding: 0 ${size.xs}px;
+      color: ${ type !== "secondary" ? backgroundSelector(type) : colors.gray.base};
+      svg {
+        fill: ${ type !== "secondary" ? backgroundSelector(type) : colors.gray.base};
+        margin: 0;
+      }
+      &:hover {
+        background: none;
+        border: none;
+        box-shadow: none;
+        svg {
+          fill: ${backgroundSelector(type, "hover")}
+        }
+      }
+      &:active, &:focus {
+        background: none;
+        border: none;
+        svg {
+          fill: ${backgroundSelector(type, "active")}
+        }
+      }
+      
     `;
   }
   else {
