@@ -15,22 +15,21 @@ export interface Props {
   iconDirection?:'left' | 'right';
 }
 
-const Button:React.SFC<Props> = (props:Props):JSX.Element => {
+export default function Button({
+  iconDirection = 'left',
+  isDisabled = false,
+  mode = 'filled',
+  size = 'm',
+  stretched = true,
+  type = 'primary',
+  icon,
+  children,
+}:Props):JSX.Element {
+  const props:Props = { iconDirection, isDisabled, mode, size, stretched, type };
   return (
     <ButtonStyles {...props}>
-      {props.icon}
-      {props.children}
+      {icon}
+      {children}
     </ButtonStyles>
   );
-};
-
-Button.defaultProps = {
-  iconDirection: 'left',
-  isDisabled: false,
-  mode: 'filled',
-  size: 'm',
-  stretched: true,
-  type: 'primary',
-};
-
-export { Button as default };
+}
