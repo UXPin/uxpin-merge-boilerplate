@@ -4,7 +4,7 @@ import Icon from '../../Icon/Icon';
 import { ItemStyles, MenuStyles, SelectContainerStyles, SelectContent, SelectStyles } from './Select.styles';
 
 interface Props {
-  children:JSX.Element[] | JSX.Element | React.ReactNode | React.ReactNode[];
+  children:React.ReactNode;
   width?:'stretched' | 'auto' | number;
   placeholder?:string;
 }
